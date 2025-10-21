@@ -1,0 +1,57 @@
+camera:
+    name: RealSense
+    resolution:
+        width: 1280
+        height: 720
+    video_path: null
+    eval_mode: False
+
+
+feature_matching:
+    feature_extractor: clvae
+
+    vae:
+        checkpoint: "/path/to/your/checkpoint"
+        resize: [16, 16]            # vae input shape
+        stride: 4                   # stride for the bounding box grid sliding window
+        similarity_threshold: 0.7
+    
+    search_expand_factor: 0.25      # LM search area expansion
+    localization_correction: True   # set True to adjust the tracked 3D points based on matching decision
+    decision_steps: 5               # number of frames to decide on the final patch
+    decision_consensus: False       # set True to use majority voting for patch selection
+    outlier_percentage: 0.25        # threshold to reject candidate matches over
+    centroid_consensus: False       # set True to use centroid of the inlier matching candidates
+
+    # Testing
+    matching_test_mode: False       # set True to start with search box
+    manual_selection: False         # (only for run_pipeline.py) flag for selection of the area to track
+
+    # Explainability
+    visualize_decision: False       # set True to visualize the matching candidates
+    heatmap: True                   # set True to visualize the heatmap
+    alpha: 0.5                      # factor for heatmap overlay
+
+
+VOLDOR:
+    vo_win_size: 2
+    rescale: 1.0
+    viewer: False
+    disp:
+        min: 1.0
+        max: 200.0
+    thresh:
+        vostep: 0.8
+        spakf: 0.8
+        depth: 0.1
+    meanshift:
+        kernel_var: 0.1
+        delta: 1.2
+        max_iters: 7
+    test_mode: False                # set True to test template matching
+
+
+flow:
+    pretrained_model: neuflow_mixed.pth
+    input_shape: [432, 768]
+    rescale: 1.0

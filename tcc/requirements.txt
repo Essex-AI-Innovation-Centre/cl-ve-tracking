@@ -1,0 +1,12 @@
+optuna
+zarr
+pyyaml
+opencv-python
+pandas
+numpy
+tqdm
+plotly
+imagecodecs
+numcodecs
+hydra-core
+kaleido

@@ -1,0 +1,28 @@
+video_path: /path/to/your/video/folder
+zarr_path: ../validation.zarr
+pkl_save_path: ../validation_pkls_split/
+bbox_pkl_save_path: ../validation_bbox_pkls/
+video_splits: 3
+tracking_window: null #50       
+sample_overlap: null #25
+logs_path: ../logs/        
+num_viz_per_video: 3      
+feature_params:           
+    maxCorners: 500       
+    qualityLevel: 0.01  
+    minDistance: 40  
+    blockSize: 7          
+lk_params:                
+    winSize: [32, 32]     
+    maxLevel: 2           
+    criteria:             
+        epsilon: 0.03 
+        max_iter: 10
+consistency_threshold: 20
+jpegxl_compression: True
+
+bboxes:
+    min_init_dim: 16
+    max_init_dim: 50
+    min_dim_all_frames: 4
+    padding_pixels: 4
