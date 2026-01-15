@@ -1,4 +1,4 @@
-# CL-VaE Tracking
+# CL-VE Tracking
 ![long_horizon_final](material/long_horizon_final.png)
 ## Requirements
 
